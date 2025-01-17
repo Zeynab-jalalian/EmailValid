@@ -37,10 +37,11 @@ label{
 }
 input{
     padding: 10px;
-    border: 1px solid #ccc;
+    border:none;
     border-radius: 5px;
     font-size: 14px;
     width: 100%;
+    position: relative;
 }
 button{
     padding: 10px;
@@ -58,4 +59,12 @@ button:hover{
     color: red;
     font-size: 12px;
     height: 15px;
+}
+form input.valid{
+ 
+    border: 1px solid green;
+}
+ form input.invalid{
+   
+    border: 1px solid red;
 }
