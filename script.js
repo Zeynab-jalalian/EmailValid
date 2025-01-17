@@ -1,22 +1,20 @@
-document.addEventListener('DOMContentLoaded',function(){
-    let input=document.getElementById('email'); //دسترسی به اینپوت ایمیل
-    let text=document.getElementById('error-message'); //دسترسی به متن
-    let form=document.querySelector('form');
-    form.addEventListener('submit',function(e){
-        e.preventDefault();
-    })
-    input.addEventListener('input',function(){ //تابع برای اینپوت هنگام تایپ ایمیل
-        let emailPattern=/^[^]+@[^]+\.[a-z]{2,3}$/ig; //فرمت درست ایمیل
-        if(input.value.match(emailPattern)){ //اگر درست بود
-         input.classList.add('valid');
-         input.classList.remove('invalid');
-         text.innerHTML="valid";
-         text.style.color="green";
-        }else{ //اگرنه
-            input.classList.add('invalid');
-            input.classList.remove('valid');
-            text.innerHTML="invalid";
-            text.style.color="red";
+document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('email'); // دسترسی به اینپوت ایمیل
+    const text = document.getElementById('error-message'); // دسترسی به متن خطا
+
+    input.addEventListener('input', function () {
+        const emailPattern = /^[^]+@[^]+\.[a-z]{2,3}$/; // فرمت درست ایمیل
+
+        if (emailPattern.test(input.value)) { // اگر ایمیل معتبر بود
+            input.classList.add('valid'); // اضافه کردن کلاس سبز
+            input.classList.remove('invalid'); // حذف کلاس قرمز
+            text.innerHTML = "Valid"; // نمایش پیام معتبر
+            text.style.color = "green";
+        } else { // اگر ایمیل نامعتبر بود
+            input.classList.add('invalid'); // اضافه کردن کلاس قرمز
+            input.classList.remove('valid'); // حذف کلاس سبز
+            text.innerHTML = "Invalid"; // نمایش پیام نامعتبر
+            text.style.color = "red";
         }
-    })
-})
+    });
+});
